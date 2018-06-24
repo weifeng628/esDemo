@@ -28,6 +28,8 @@
             </div>
         </div>
         <script src="./layui/layui.js"></script>
+        <script type="text/html" id="url">
+        </script>
         <script>
             layui.use(['layer','table', 'jquery'], function () {
                 var table = layui.table;
@@ -51,6 +53,9 @@
                         {field: 'title', width: 100, title: '标题'}
                         , {field: 'keyword', width: 180, title: '关键字', sort: true}
                         , {field: 'content', title: '内容'}
+                        , {field:'url',title: '链接地址',templet: function(d){
+                                return '<a href="'+ d.url + '"class="layui-table-link">'+d.url+'</a>'
+                            }}
                     ]],
                     done:function(res, curr, count){
                         console.log(res)
